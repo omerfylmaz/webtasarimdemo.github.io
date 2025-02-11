@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kar Yağışı</title>
+    <style>
+        #snowflake {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background-image: url('snow.png');
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div id="snowflake"></div>
+    <script>
+        function karanimation() {
+            const snowflake = document.getElementById('snowflake');
+            let position = 10; // Başlangıç pozisyonu (%10)
+            const interval = setInterval(() => {
+                position += 2; // Her saniye %2 art
+                snowflake.style.top = position + '%';
+                
+                // %50'ye ulaştığında durdur
+                if (position >= 50) {
+                    clearInterval(interval);
+                }
+            }, 1000); // 1000ms = 1 saniye
+        }
+
+        karanimation(); // Fonksiyonu çalıştır
+    </script>
+</body>
+</html>
